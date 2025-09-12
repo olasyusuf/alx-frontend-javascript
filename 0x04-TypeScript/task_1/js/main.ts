@@ -91,7 +91,7 @@ const director2: Director = {
   numberOfReports: 3,
 };
 
-class StudentClass implements IStudentClass {
+class StudentClass {
   firstName: string;
   lastName: string;
 
