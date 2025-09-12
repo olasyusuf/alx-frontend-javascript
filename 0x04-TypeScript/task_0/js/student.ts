@@ -13,15 +13,15 @@ export interface Student {
  */
 export const studentsList: Student[] = [
   {
-    firstName: "John",
-    lastName: "Doe",
+    firstName: "Abike",
+    lastName: "Dawud",
     age: 20,
-    location: "New York"
+    location: "Lagos"
   },
   {
-    firstName: "Jane",
-    lastName: "Smith",
+    firstName: "Obi",
+    lastName: "Jonathan",
     age: 22,
-    location: "Los Angeles"
+    location: "Abuja"
   }
 ];
