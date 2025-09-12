@@ -14,6 +14,14 @@ interface Director extends Teacher {
   numberOfReports: number; // Required attribute specific to Directors
 }
 
+/**
+ * Interface for the printTeacher function.
+ * Defines the expected signature of the function.
+ */
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
 
 /**
  * Example teacher data following the Teacher interface.
@@ -63,6 +71,22 @@ const director2: Director = {
 };
 
 
+
+/**
+ * Implements the printTeacherFunction interface.
+ * Returns First initial, then full last name.
+ *
+ * @param firstName The first name of the teacher.
+ * @param lastName The last name of the teacher.
+ * @returns A formatted string like "J. Doe".
+ */
+export const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
+  return `${firstName.charAt(0)}. ${lastName}`;
+};
+
+
+
+
 // Example 3: Demonstrating readonly property (will cause a TypeScript error)
 // teacher1.lastName = "Abubakar"; // Error: Cannot assign to 'lastName' because it is a read-only property.
 
@@ -76,3 +100,10 @@ console.log("Teacher 3 has no contract:", teacher3.contact);
 
 console.log("Director 1:", director1);
 console.log("Director 2:", director2);
+
+// --- Example Usage (for demonstration and type checking) ---
+const formattedTeacherName: string = printTeacher("John", "Doe");
+console.log(formattedTeacherName); // Output: J. Doe
+
+const anotherTeacher: string = printTeacher("Abubakar", "Jamil");
+console.log(anotherTeacher); // Output: A. Jamil
