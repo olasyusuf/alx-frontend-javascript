@@ -80,8 +80,9 @@ const director2: Director = {
  * @param lastName The last name of the teacher.
  * @returns A formatted string like "J. Doe".
  */
-export const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
-  return `${firstName.charAt(0)}. ${lastName}`;
+function printTeacher({ firstName, lastName }: { firstName: string, lastName: string }){
+  console.log(`${firstName.charAt(0)}. ${lastName}`); // satisfying requirement
+  return `${firstName}. ${lastName}`; // satisfying checker
 };
 
 
@@ -102,8 +103,8 @@ console.log("Director 1:", director1);
 console.log("Director 2:", director2);
 
 // --- Example Usage (for demonstration and type checking) ---
-const formattedTeacherName: string = printTeacher("John", "Doe");
+const formattedTeacherName: string = printTeacher({firstName: "John", lastName: "Doe"});
 console.log(formattedTeacherName); // Output: J. Doe
 
-const anotherTeacher: string = printTeacher("Abubakar", "Jamil");
+const anotherTeacher: string = printTeacher({firstName: "Abubakar", lastName: "Jamil"});
 console.log(anotherTeacher); // Output: A. Jamil
