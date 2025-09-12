@@ -10,7 +10,7 @@ interface Teacher {
   [key: string]: any;        // Allow for arbitrary additional properties
 }
 
-interface Directors extends Teacher {
+interface Director extends Teacher {
   numberOfReports: number; // Required attribute specific to Directors
 }
 
@@ -44,7 +44,7 @@ const teacher3: Teacher = {
 
 // --- Example Usage (for demonstration and type checking) ---
 
-const director1: Directors = {
+const director1: Director = {
   firstName: "Charles",
   lastName: "David",
   fullTimeEmployee: true,
@@ -54,7 +54,7 @@ const director1: Directors = {
   bonus: 5000 // Allowed by the index signature inherited from Teacher
 };
 
-const director2: Directors = {
+const director2: Director = {
   firstName: "Diana",
   lastName: "Evans",
   fullTimeEmployee: false, // Directors can also be part-time as per Teacher interface
