@@ -1,4 +1,31 @@
-import { studentsList, Student } from "./student"; // Import the interface and data
+// import { studentsList, Student } from "./student"; // Import the interface and data
+/**
+ * Interface representing a student's basic information.
+ */
+interface Student {
+  firstName: string;
+  lastName: string;
+  age: number;
+  location: string;
+}
+
+/**
+ * An array containing predefined student data.
+ */
+const studentsList: Student[] = [
+  {
+    firstName: "John",
+    lastName: "Doe",
+    age: 20,
+    location: "New York"
+  },
+  {
+    firstName: "Jane",
+    lastName: "Smith",
+    age: 22,
+    location: "Los Angeles"
+  }
+];
 
 /**
  * Renders a table of students to the HTML body.
