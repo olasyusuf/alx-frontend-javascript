@@ -22,6 +22,27 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
+// interfaces/studentClassInterfaces.ts (or add to your existing interfaces/index.ts)
+
+/**
+ * Interface describing the shape of a StudentClass instance.
+ * It outlines the properties and methods that an object of StudentClass must have.
+ */
+interface IStudentClass {
+  firstName: string;
+  lastName: string;
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+/**
+ * Interface describing the constructor signature of StudentClass.
+ * This specifies what arguments the constructor expects.
+ */
+interface StudentConstructor {
+  new (firstName: string, lastName: string): IStudentClass;
+}
+
 
 /**
  * Example teacher data following the Teacher interface.
@@ -70,7 +91,36 @@ const director2: Director = {
   numberOfReports: 3,
 };
 
+class StudentClass implements IStudentClass {
+  firstName: string;
+  lastName: string;
 
+  /**
+   * Constructs a new Student instance.
+   * @param firstName The first name of the student.
+   * @param lastName The last name of the student.
+   */
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  /**
+   * Returns a string indicating the student is working on homework.
+   * @returns The string "Currently working".
+   */
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  /**
+   * Returns the first name of the student.
+   * @returns The student's first name.
+   */
+  displayName(): string {
+    return this.firstName;
+  }
+}
 
 /**
  * Implements the printTeacherFunction interface.
@@ -84,8 +134,6 @@ function printTeacher({ firstName, lastName }: { firstName: string, lastName: st
   console.log(`${firstName.charAt(0)}. ${lastName}`); // satisfying requirement
   return `${firstName}. ${lastName}`; // satisfying checker
 };
-
-
 
 
 // Example 3: Demonstrating readonly property (will cause a TypeScript error)
@@ -108,3 +156,15 @@ console.log(formattedTeacherName); // Output: J. Doe
 
 const anotherTeacher: string = printTeacher({firstName: "Abubakar", lastName: "Jamil"});
 console.log(anotherTeacher); // Output: A. Jamil
+
+
+// --- Example Usage (for demonstration and type checking) ---
+
+// Create an instance of Student using the StudentConstructor interface implicitly
+const studentInstance: IStudentClass = new StudentClass("Abubakar", "Jamil");
+
+ // Output: Student's first name: Abubakar
+console.log(`Student's first name: ${studentInstance.displayName()}`);
+
+// Output: Student's homework status: Currently working
+console.log(`Student's homework status: ${studentInstance.workOnHomework()}`); 
