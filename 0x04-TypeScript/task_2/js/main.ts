@@ -1,3 +1,8 @@
+/**
+ * String literal type representing the possible subjects a class can teach.
+ * A variable of this type can only hold the value 'Math' or 'History'.
+ */
+type Subjects = 'Math' | 'History';
 
 // --- Director Interfaces ---
 interface DirectorInterface {
@@ -95,6 +100,20 @@ function executeWork(employee: Director | Teacher): string {
 }
 
 
+/**
+ * Teaches a specific class based on the subject provided.
+ *
+ * @param todayClass The subject of the class to teach (either 'Math' or 'History').
+ * @returns A string indicating what subject is being taught.
+ */
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  }
+}
+
 
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
@@ -149,3 +168,12 @@ console.log(`Is employeeB a Director? ${isDirector(employeeB)}`); // Output: Is 
 
 console.log(`Employee A executes work: ${executeWork(employeeA)}`); // Output: Employee A executes work: Getting to work
 console.log(`Employee B executes work: ${executeWork(employeeB)}`); // Output: Employee B executes work: Getting to director tasks
+
+
+// --- Example Usage (for demonstration and type checking) ---
+console.log(teachClass('Math'));    // Output: Teaching Math
+console.log(teachClass('History')); // Output: Teaching History
+
+// You can also assign the type to variables:
+let currentSubject: Subjects = 'Math';
+console.log(teachClass(currentSubject));
