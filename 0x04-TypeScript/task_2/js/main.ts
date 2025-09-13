@@ -106,7 +106,7 @@ function executeWork(employee: Director | Teacher): string {
  * @param todayClass The subject of the class to teach (either 'Math' or 'History').
  * @returns A string indicating what subject is being taught.
  */
-function teachClass(todayClass: Subjects): string {
+function teachClass(todayClass:Subjects): string {
   if (todayClass === 'Math') {
     return 'Teaching Math';
   } else if (todayClass === 'History') {
