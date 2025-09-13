@@ -72,7 +72,8 @@ function createEmployee(salary: number | string): Director | Teacher {
  * @param employee The employee object to check.
  * @returns True if the employee is an instance of Director, otherwise false.
  */
-function isDirector(employee: Director | Teacher): employee is Director {
+// function isDirector(employee: Director | Teacher): employee is Director {
+export function isDirector(employee: Director | Teacher): employee is Director { // for checker
   return (employee as Director).workDirectorTasks !== undefined;
   // A more robust check might involve 'instanceof Director' if you're sure about the class structure,
   // but checking for a unique method like workDirectorTasks is common for interfaces.
