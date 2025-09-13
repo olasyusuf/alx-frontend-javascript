@@ -1,9 +1,15 @@
-export const cpp = new Subjects.Cpp();
-export const java = new Subjects.Java();
-export const react = new Subjects.React();
+import Teacher = Subjects.Teacher;
+
+
+const { Cpp, Java, React } = Subjects;
+
+export const cpp = new Cpp();
+export const java = new Java();
+export const react = new React();
+
 
 // Create and export a Teacher object with experience in C++
-export const cTeacher: Subjects.Teacher = {
+export const cTeacher: Teacher = {
   firstName: 'John',
   lastName: 'Doe',
   experienceTeachingC: 10,
