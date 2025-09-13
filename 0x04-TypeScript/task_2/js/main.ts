@@ -53,18 +53,14 @@ class Teacher implements TeacherInterface {
  * @returns A new Director instance if salary >= 500 (or non-numeric), otherwise a new Teacher instance.
  */
 function createEmployee(salary: number | string): Director | Teacher {
-  // Convert salary to number for comparison. If it's a string, try to parse it.
-  // If parsing fails or it's not a valid number, assume it's not "less than 500" for simplicity,
-  // making it fall into the Director category as per the requirement "Otherwise it should return a Director".
-  const numericSalary = typeof salary === 'string' ? parseFloat(salary) : salary;
 
-  if (typeof numericSalary === 'number' && !isNaN(numericSalary) && numericSalary < 500) {
+  if (typeof salary === "number" && salary < 500) {
     console.log('Teacher');
     return new Teacher();
-  } else {
-    console.log('Director');
-    return new Director();
   }
+  
+  console.log('Director');
+  return new Director();
 }
 
 console.log(createEmployee(200));
